@@ -10,7 +10,6 @@ add_executable(projeto_final_
         patas/arvore.h
         patas/cadastro.c
         patas/cadastro.h
-        patas/imagens.c
         patas/lista.c
         patas/lista.h
         patas/main.c)

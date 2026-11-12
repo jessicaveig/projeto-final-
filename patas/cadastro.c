@@ -4,7 +4,7 @@
 #include "cadastro.h"
 #include <stdio.h>
 
-cadastrar_ficha (void) {
+cadastro cadastrar_ficha (void) {
     cadastro animal;
 
     printf ("novo animal\n ");
@@ -26,7 +26,7 @@ cadastrar_ficha (void) {
 
 
     printf("idade: \n");
-    scanf("%s",&animal.idade);
+    scanf("%d",&animal.idade);
 
 
     printf("sexo: \n");

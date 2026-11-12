@@ -19,7 +19,7 @@ typedef struct  cadastro {
 
 }cadastro;
 
-cadastrar_ficha(void);
+cadastro cadastrar_ficha(void);
 void  apresentar_ficha(cadastro animal);
 
 #endif //PATAS_CADASTRO_H

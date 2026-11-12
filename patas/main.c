@@ -2,20 +2,23 @@
 #include <stdlib.h>
 #include "cadastro.h"
 #include "lista.h"
-
+#include "arvore.h"
 
 int main(void) {
     int codigo;
     No *lista = NULL;
     cadastro animal;
     int opcao;
+    Noarv *raiz = NULL;
+    printf("altura: %d\n",altura(raiz));
+    printf("fator de balanceamento: %d\n",fatorbalanceamento(raiz));
 
     do {
-        printf("\n =========MENU===========\n");
+        printf("\n ================MENU=====================\n");
         printf("1 - ==========cadastrar animal =============\n");
-        printf("2- ============apresentar animais ==============\n");
-        printf("3- =============buscar animal ================\n");
-        printf("4- =====================remover animal=============\n");
+        printf("2- ===========apresentar animais ===========\n");
+        printf("3- ============buscar animal ===============\n");
+        printf("4- ============remover animal===============\n");
         printf("0- sair\n");
         printf("digite sua opcao:\n ");
         scanf("%d", &opcao);
@@ -68,3 +71,5 @@ int main(void) {
 
     return 0;
 }
+
+

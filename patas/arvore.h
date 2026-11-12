@@ -8,9 +8,15 @@
 #endif //PATAS_ARVORE_H
 #include "cadastro.h"
 
-typedef struct No {
+typedef struct Noarv {
     cadastro animal;
-    struct No *esquerda;
-    struct No *direita;
-    int altura;
-}No;
+    struct Noarv *esquerda;
+    struct Noarv *direita;
+}Noarv;
+
+int altura(Noarv *raiz);
+int fatorbalanceamento(Noarv *raiz);
+Noarv *rotacaodir(Noarv *raiz);
+Noarv *rotacaoesq(Noarv *raiz);
+Noarv *rotacaoesdi(Noarv *raiz);
+Noarv *rotacaodies(Noarv *raiz);
