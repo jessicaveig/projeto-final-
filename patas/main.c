@@ -11,11 +11,11 @@ int main(void) {
     int opcao;
 
     do {
-        printf("\n =========MENU===========\n");
+        printf("\n ================MENU=====================\n");
         printf("1 - ==========cadastrar animal =============\n");
-        printf("2- ============apresentar animais ==============\n");
-        printf("3- =============buscar animal ================\n");
-        printf("4- =====================remover animal=============\n");
+        printf("2- ===========apresentar animais ===========\n");
+        printf("3- ============buscar animal ===============\n");
+        printf("4- ============remover animal===============\n");
         printf("0- sair\n");
         printf("digite sua opcao:\n ");
         scanf("%d", &opcao);

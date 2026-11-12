@@ -16,4 +16,5 @@ No *inserir_ficha( No *lista, cadastro animal);
 void listar_ficha(No *lista);
 void remover_ficha(No **lista,int codigo);
 No* buscar_ficha(No *lista, int codigo);
+
 #endif //PATAS_LISTA_H
