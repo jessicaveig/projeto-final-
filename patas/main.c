@@ -9,6 +9,7 @@ int main(void) {
     No *lista = NULL;
     cadastro animal;
     int opcao;
+    int idade;
     Noarv *raiz = NULL;
     printf("altura: %d\n",altura(raiz));
     printf("fator de balanceamento: %d\n",fatorbalanceamento(raiz));
@@ -17,8 +18,9 @@ int main(void) {
         printf("\n ================MENU=====================\n");
         printf("1 - ==========cadastrar animal =============\n");
         printf("2- ===========apresentar animais ===========\n");
-        printf("3- ============buscar animal ===============\n");
+        printf("3- ======buscar animal pelo codigo==========\n");
         printf("4- ============remover animal===============\n");
+        printf("5- ========buscar animal pela idade ========\n");
         printf("0- sair\n");
         printf("digite sua opcao:\n ");
         scanf("%d", &opcao);
@@ -61,7 +63,11 @@ int main(void) {
                 scanf("%d", &codigo);
                 remover_ficha(&lista,codigo);
                 break;
-
+            case 5:
+                printf("digite  a idade que voce procura:\n");
+                scanf("%d", &idade);
+                busca(raiz,idade);
+                break;
 
             default:
                 printf("opcao invalida!\n");
