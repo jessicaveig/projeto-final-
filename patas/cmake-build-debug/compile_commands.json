@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -g -fdiagnostics-color=always -o CMakeFiles\\patas.dir\\main.c.obj -c C:\\Users\\jessi\\CLionProjects\\patas\\main.c",
+  "file": "C:/Users/jessi/CLionProjects/patas/main.c",
+  "output": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug/CMakeFiles/patas.dir/main.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -g -fdiagnostics-color=always -o CMakeFiles\\patas.dir\\cadastro.c.obj -c C:\\Users\\jessi\\CLionProjects\\patas\\cadastro.c",
+  "file": "C:/Users/jessi/CLionProjects/patas/cadastro.c",
+  "output": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug/CMakeFiles/patas.dir/cadastro.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -g -fdiagnostics-color=always -o CMakeFiles\\patas.dir\\imagens.c.obj -c C:\\Users\\jessi\\CLionProjects\\patas\\imagens.c",
+  "file": "C:/Users/jessi/CLionProjects/patas/imagens.c",
+  "output": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug/CMakeFiles/patas.dir/imagens.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -g -fdiagnostics-color=always -o CMakeFiles\\patas.dir\\lista.c.obj -c C:\\Users\\jessi\\CLionProjects\\patas\\lista.c",
+  "file": "C:/Users/jessi/CLionProjects/patas/lista.c",
+  "output": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug/CMakeFiles/patas.dir/lista.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -g -fdiagnostics-color=always -o CMakeFiles\\patas.dir\\arvore.c.obj -c C:\\Users\\jessi\\CLionProjects\\patas\\arvore.c",
+  "file": "C:/Users/jessi/CLionProjects/patas/arvore.c",
+  "output": "C:/Users/jessi/CLionProjects/patas/cmake-build-debug/CMakeFiles/patas.dir/arvore.c.obj"
+}
+]

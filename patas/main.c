@@ -5,14 +5,14 @@
 #include "arvore.h"
 
 int main(void) {
-    int codigo;
+    Noarv *raiz = NULL;
     No *lista = NULL;
     cadastro animal;
+    int codigo;
     int opcao;
     int idade;
-    Noarv *raiz = NULL;
-    printf("altura: %d\n",altura(raiz));
-    printf("fator de balanceamento: %d\n",fatorbalanceamento(raiz));
+
+
 
     do {
         printf("\n ================MENU=====================\n");
@@ -33,6 +33,8 @@ int main(void) {
                 lista = inserir_ficha(lista, animal);
                 // apresentação da ficha
                 apresentar_ficha(animal);
+                // inserir na arvore
+               raiz = inserir(raiz, animal);
 
                 break;
             }
@@ -59,10 +61,13 @@ int main(void) {
 
             case 4:
                 // remover animal
-                printf("digite o codigo que voce quer remover\n:");
+                printf("digite o codigo que voce quer remover:\n");
                 scanf("%d", &codigo);
                 remover_ficha(&lista,codigo);
+                // remover da arvore
+                raiz = remover(raiz,codigo);
                 break;
+
             case 5:
                 printf("digite  a idade que voce procura:\n");
                 scanf("%d", &idade);

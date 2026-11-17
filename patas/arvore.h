@@ -12,6 +12,7 @@ typedef struct Noarv {
     cadastro animal;
     struct Noarv *esquerda;
     struct Noarv *direita;
+    int altura;
 }Noarv;
 
 int altura(Noarv *raiz);
