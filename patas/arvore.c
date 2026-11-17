@@ -23,29 +23,21 @@ int fatorbalanceamento(Noarv * raiz) {
         return 0;
     }
         return altura(raiz->esquerda) - altura(raiz->direita);
-    int fatorbalanceamento;
-
-    if (fatorbalanceamento == -1 || fatorbalanceamento == 0|| fatorbalanceamento == 1) {
-        printf ("equilibrado");
-        return fatorbalanceamento ;
-    }
-    printf("arvore desequilibrada");
-    return fatorbalanceamento;
 };
 
 Noarv *rotacaoesq(Noarv *y) {
-    Noarv *x = y->esquerda;
-    Noarv *temp = x->direita;
-    x->direita= y;
-    y->esquerda = temp;
+    Noarv *x = y->direita;
+    Noarv *temp = x->esquerda;
+    x->esquerda= y;
+    y->direita = temp;
     return x;
 }
-// *x
+
 Noarv *rotacaodir(Noarv *x) {
-    Noarv *y = x->direita;
-    Noarv *temp = y->esquerda;
-    x->esquerda= x;
-    y->direita = temp;
+    Noarv *y = x->esquerda;
+    Noarv *temp = y->direita;
+    x->direita= x;
+    y->esquerda = temp;
     return y;
 }
 Noarv *rotacaoesdi(Noarv *raiz) {
@@ -72,15 +64,49 @@ Noarv *inserir(Noarv *raiz, cadastro animal) {
     else {
         raiz->direita = inserir(raiz->direita, animal);
     }
+    //  Verificar o balanceamento
+    int fator = fatorbalanceamento(raiz);
+
+
+    //  rotação à direita
+    if (fator > 1 &&
+        animal.idade < raiz->esquerda->animal.idade) {
+        return rotacaodir(raiz);
+        }
+
+
+    //  rotação à esquerda
+    if (fator < -1 &&
+        animal.idade >= raiz->direita->animal.idade) {
+        return rotacaoesq(raiz);
+        }
+
+
+    // rotação dupla esquerda-direita
+    if (fator > 1 &&
+        animal.idade >= raiz->esquerda->animal.idade) {
+        return rotacaoesdi(raiz);
+        }
+
+
+    //  rotação dupla direita-esquerda
+    if (fator < -1 &&
+        animal.idade < raiz->direita->animal.idade) {
+        return rotacaodies(raiz);
+        }
+
     return raiz;
 }
+
+
 void busca(Noarv *raiz, int idade) {
     if (raiz == NULL) {
+        printf("nao encontrado");
         return ;
     }
     if (idade == raiz->animal.idade) {
-        printf("Encontrou!");
         apresentar_ficha(raiz->animal);
+
     }
     if (idade <= raiz->animal.idade) {
         busca(raiz->esquerda, idade);
