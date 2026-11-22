@@ -5,7 +5,7 @@
 
 int altura (Noarv *raiz) {
     if (raiz == NULL){
-       return -1;
+       return 0;
     }
     int alturaesq =altura(raiz->esquerda);
     int alturadir = altura(raiz->direita);
@@ -36,8 +36,8 @@ Noarv *rotacaoesq(Noarv *y) {
 Noarv *rotacaodir(Noarv *x) {
     Noarv *y = x->esquerda;
     Noarv *temp = y->direita;
-    x->direita= x;
-    y->esquerda = temp;
+    y->direita= x;
+    x->esquerda = temp;
     return y;
 }
 Noarv *rotacaoesdi(Noarv *raiz) {
@@ -47,6 +47,34 @@ Noarv *rotacaoesdi(Noarv *raiz) {
 Noarv *rotacaodies(Noarv *raiz) {
     raiz->direita = rotacaodir(raiz->direita);
     return rotacaoesq(raiz);
+}
+Noarv *balancear(Noarv *raiz) {
+
+    int fator = fatorbalanceamento(raiz);
+
+    // Pesado para a esquerda
+    if (fator > 1) {
+
+        if (fatorbalanceamento(raiz->esquerda) >= 0) {
+            return rotacaodir(raiz);
+        }
+        else {
+            return rotacaoesdi(raiz);
+        }
+    }
+
+    // Pesado para a direita
+    if (fator < -1) {
+
+        if (fatorbalanceamento(raiz->direita) <= 0) {
+            return rotacaoesq(raiz);
+        }
+        else {
+            return rotacaodies(raiz);
+        }
+    }
+
+    return raiz;
 }
 
 Noarv *inserir(Noarv *raiz, cadastro animal) {
@@ -64,38 +92,9 @@ Noarv *inserir(Noarv *raiz, cadastro animal) {
     else {
         raiz->direita = inserir(raiz->direita, animal);
     }
-    //  Verificar o balanceamento
-    int fator = fatorbalanceamento(raiz);
+    //  fazer o balanceamento
+    return balancear(raiz);
 
-
-    //  rotação à direita
-    if (fator > 1 &&
-        animal.idade < raiz->esquerda->animal.idade) {
-        return rotacaodir(raiz);
-        }
-
-
-    //  rotação à esquerda
-    if (fator < -1 &&
-        animal.idade >= raiz->direita->animal.idade) {
-        return rotacaoesq(raiz);
-        }
-
-
-    // rotação dupla esquerda-direita
-    if (fator > 1 &&
-        animal.idade >= raiz->esquerda->animal.idade) {
-        return rotacaoesdi(raiz);
-        }
-
-
-    //  rotação dupla direita-esquerda
-    if (fator < -1 &&
-        animal.idade < raiz->direita->animal.idade) {
-        return rotacaodies(raiz);
-        }
-
-    return raiz;
 }
 
 
@@ -115,21 +114,6 @@ void busca(Noarv *raiz, int idade) {
         busca(raiz->direita, idade);
     }
 }
-Noarv *buscacodigo(Noarv *raiz, int codigo) {
-    if (raiz == NULL) {
-        return NULL;
-    }
-    if (codigo == raiz->animal.codigo) {
-        return raiz ;
-    }
-    Noarv *encontrado = buscacodigo(raiz->esquerda, codigo);
-    if (encontrado != NULL) {
-        return encontrado;
-    }
-    else{
-        return buscacodigo(raiz->direita, codigo);
-    }
-}
 Noarv * encontrarmenor(Noarv *raiz) {
     while (raiz->esquerda !=NULL) {
         raiz = raiz->esquerda;
@@ -145,40 +129,48 @@ Noarv *removermenor(Noarv *raiz) {
     raiz->esquerda = removermenor(raiz->esquerda);
     return raiz;
 }
-Noarv *remover(Noarv *raiz, int codigo) {
 
-    if (raiz == NULL) {
-        return NULL;
-    }
-    // encontrou o animal
-    if (raiz->animal.codigo == codigo) {
+    Noarv *remover(Noarv *raiz, int codigo) {
 
-        // sem filhos
-        if (raiz->esquerda == NULL && raiz->direita == NULL) {
-            free(raiz);
+        if (raiz == NULL) {
             return NULL;
         }
-        // somente 1 filho
-        if (raiz->esquerda == NULL) {
-            Noarv* auxiliar = raiz->direita;
-            free (raiz);
-            return auxiliar;
-        }
-        if (raiz->direita == NULL) {
-            Noarv* auxiliar = raiz->esquerda;
-            free (raiz);
-            return auxiliar;
-        }
-        // 2 filhos
-        Noarv* menor = encontrarmenor(raiz->direita);
-        raiz->animal =  menor->animal;
-        raiz->direita = removermenor(raiz->direita);
-        return raiz;
-    }
-    // procura na esquerda
-    raiz->esquerda = remover(raiz->esquerda, codigo);
-    // procura na direita
-    raiz->direita = remover(raiz->direita, codigo);
-    return raiz;
 
-}
+        if (raiz->animal.codigo == codigo) {
+
+            // Sem filhos
+            if (raiz->esquerda == NULL &&
+                raiz->direita == NULL) {
+                free(raiz);
+                return NULL;
+                }
+
+            // Somente filho direito
+            if (raiz->esquerda == NULL) {
+                Noarv *auxiliar = raiz->direita;
+                free(raiz);
+                return auxiliar;
+            }
+
+            // Somente filho esquerdo
+            if (raiz->direita == NULL) {
+                Noarv *auxiliar = raiz->esquerda;
+                free(raiz);
+                return auxiliar;
+            }
+
+            // Dois filhos
+            Noarv *menor = encontrarmenor(raiz->direita);
+
+            raiz->animal = menor->animal;
+
+            raiz->direita = removermenor(raiz->direita);
+
+        }
+        else {
+            raiz->esquerda = remover(raiz->esquerda, codigo);
+            raiz->direita = remover(raiz->direita, codigo);
+        }
+
+        return balancear(raiz);
+    }

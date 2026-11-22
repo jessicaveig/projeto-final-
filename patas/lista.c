@@ -5,10 +5,6 @@
 
 // inserir novo cadastro //
 No *inserir_ficha(No *lista, cadastro animal) {
-    // No* retorna um novo valor para o nó//
-    // *lista indica o endereço do primeiro no da lista //
-    // *novo guarda o endereço do novo nó//
-    // todos os novos animais são inciados no começo da fila //
 
     No *novo = malloc(sizeof(No));
     if (novo == NULL) {
@@ -30,31 +26,27 @@ void listar_ficha(No *lista ) {
 };
 // remover cadastro caso o animal seja adotado //
 void remover_ficha(No **lista, int codigo) {
-    if (*lista ==NULL) {
-        printf("animal nao encontrado");
-        return;
-    }
+
     No *atual =*lista;
     No *anterior = NULL;
 
-    while (atual != NULL && atual->animal.codigo != codigo ) {
+    while (atual != NULL) {
+        if (atual->animal.codigo == codigo) {
+            if (anterior == NULL) {
+                *lista = atual->prox;
+            }
+            else {
+                anterior->prox = atual->prox;
+            }
+            free(atual);
+            printf("animal  removido\n");
+            return;
+        }
         anterior = atual;
         atual = atual->prox;
     }
-    if (atual  ==NULL) {
-        printf("animal não encontrado\n");
-        return;
-    }
-    // começo da lista //
-    if (anterior ==  NULL) {
-        *lista = atual->prox ;
-    }
-    // meio ou final da lista //
-    // o anterior aponta para o próximo da fila ignorando o excluído//
-    else {
-        anterior->prox = atual->prox;
-    }
-    free(atual);
+    printf("animal nao encontrado\n");
+
 }
     No * buscar_ficha(No* lista , int codigo) {
     No *atual = lista;
