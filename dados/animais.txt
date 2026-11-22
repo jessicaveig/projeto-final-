@@ -1,0 +1,4 @@
+26;cachorro;marlon;vira-lata;1;macho;pequeno;sim;n∆o;gentil;c.marlon.png
+24;gato;alvin;vira-lata;1;macho;pequeno;sim;sim;carinhoso;g.alvin.png
+22;cachorro;bob;golden;2;macho;grande;sim;n∆o;brincalhao;c.bob.png
+20;gato;mia;siames;2;femea;pequeno;sim;sim;doce;g.mia.png

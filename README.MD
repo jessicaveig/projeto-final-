@@ -1,15 +1,19 @@
+# SISTEMA DE ADOÇÃO DE ANIMAIS PATAS
+
+## Sobre o projeto
+
+Sistema desenvolvido em liguagem em c para gerenciamento de animais disponivéis para adoção
+
 ## Autoria
 Nome: Jéssica veiga 
 Matricula: 202210503705
 
 ## Instituição 
-justificativa,
 
-# SISTEMA DE ADOÇÃO DE ANIMAIS PATAS
+A instituição escolhida foi uma ONG de adoção de pets localizada na Palhoça, Diretoria de Bem-Estar Animal de Palhoça (DIBEA).
+Ela foi escolhida por ser próxima à região, ele possibilita uma orgaização dos animais por cadastro, sendo possível a procura 
+tanto pelo código que o animal possui quanto pela idade desejada.
 
-## Sobre o projeto 
-
-Sistema desenvolvido em liguagem em c para gerenciamento de animais disponivéis para adoção 
 
 ## Funcionalidades
 
@@ -30,10 +34,74 @@ Sistema desenvolvido em liguagem em c para gerenciamento de animais disponivéis
 - CLion
 - CMake
 
-## diretoria imagens
+## Execução e compilação
+
+Baixe ou clone o repositório do projeto.
+
+Abra a pasta do projeto no CLion.
+
+Aguarde o CMake carregar e configurar os arquivos.
+
+Clique em Build para compilar o projeto.
+
+Clique em Run para executar o programa.
+
+O menu principal será exibido no terminal, permitindo acessar as funcionalidades do sistema.
+
+
+## Pasta imagens
 
 Local que estarão salvas as 4 imagens que serão usadas para demonstração do codigo, ao ser requisitado dentro estrutura cadastro a
 imagem será escrita o nome das imagens armazenando assim o caminho do arquivo da imagem.
+
+## Pasta dados 
+
+Guarda o arquivo TXT dos cadastros
+
+## Pasta main.c 
+
+Inicializa as estruturas de dados, carrega os cadastros salvos anteriormente,
+e disponibiliza um menu interativo para realizar operações de cadastro, consulta, listagem e remoção de animais.
+
+No íncio da pasta main são inicializadas a raiz da árvore AVL e a lista encadeada com NULL, tambám são declaradas as
+variáveis necessárias para armazenar os cadastros e as opções escolhidas pelo usuário.
+chama-se a função carregar_arquivo(&lista, &raiz) para abrir o arquivo TXT que contem os cadastros
+Exibe um menu de opções utilizando uma estrutura do while e utiliza switch para executar a operação correspondente à opção selecionada.
+Repete a exibição do menu até que o usuário escolha a opção zero para sair.
+
+Opção 1:
+Novo cadastro.
+
+Usa a função cadastrar_ficha() para coletar os dados do animal e utilizando a função inserir_ficha() insere o novo cadastro dentro da lista encadeada
+após isso mostra o novo cadastro com a função apresentar_ficha() para o usuário, usando a função a inserir() insere também na árvore e salva o cadastro 
+num arquivo TXT.
+
+Opção 2:
+Apresenta os cadastros existentes.
+
+Usa a função listar_ficha(lista) para percorrer a lista e apresentar os cadastros existentes.
+
+Opção 3:
+Procura animal pelo código.
+
+Usa a função buscar_ficha(listar,código) para percorrer a lista procurando o animal pelo código e devolve o endereço do 
+cadastro, que é apresentado pela função listar_ficha(encontrado).
+
+Opção 4:
+Remove o animal pelo código.
+
+Usa a função remover_ficha(&lista, código) para remover o cadastro correspondente ao código solicitando na lista e chama a 
+função remover(raiz,código) para remover o cadastro da árvore AVL também, chama-se a função salvar_arquivo(lista) para uma atualização
+quando apagado algum cadastro.
+
+Opção 5:
+Busca o animal pela idade
+
+Usa a função busca(raiz, idade) percorre a árvore AVL para localizar a animais com a idade solicitada.
+
+Opção 0:
+Encerra a repetição do menu e finaliza a execução do programa.
+
 
 ## Pasta cadastro.h
 
@@ -42,35 +110,35 @@ e à apresentação das informações dos animais
 
 Dentro da estrutura cadastro:
 
-armazena-se os dados dos animail cadastro no sistema.
+Armazena-se os dados dos animal cadastro no sistema.
 
-codigo = dentificador único do animal no sistema.
+Código, identificador único do animal no sistema.
 
-especie = Espécie do animal, como gato ou cachorro.
+Especie, espécie do animal, como gato ou cachorro.
 
-nome = Nome do animal.
+Nome, nome do animal.
 
-raca = Raça do animal.
+Raça, raça do animal.
 
-idade = Idade do animal.
+Idade, idade do animal.
 
-sexo = sexo do animal.
+Sexo, sexo do animal.
 
-porte = porte físico do animal, como pequeno, médio ou grande.
+Porte, porte físico do animal, como pequeno, médio ou grande.
 
-vacinado = Informa se o animal está vacinado.
+Vacinado, informa se o animal está vacinado.
 
-castrado = Informa se o animal está castrado.
+Castrado, informa se o animal está castrado.
 
-personalidade = Descrição das características comportamentais do animal.
+Personalidade, descrição das características comportamentais do animal.
 
-foto = Armazena o nome ou caminho do arquivo de imagem do animal.
+Foto, armazena o nome ou caminho do arquivo de imagem do animal.
 
 Foram declaradas as funções:
 
-cadastrar_ficha(void): realiza a coleta das informações do animal e retorna uma variável do tipo cadastro preenchida com os dados informados.
+Cadastrar_ficha(void): realiza a coleta das informações do animal e retorna uma variável do tipo cadastro preenchida com os dados informados.
 
-apresentar_ficha(cadastro animal): recebe uma variável do tipo cadastro e apresenta as informações correspondentes ao animal.
+Apresentar_ficha(cadastro animal): recebe uma variável do tipo cadastro e apresenta as informações correspondentes ao animal.
 
 
 ## Pasta cadastro.c 
@@ -166,8 +234,8 @@ Busca o cadastro de um ID
 
 Parametros
 
-o ponteiro lista = guarda o endereço do inicio da lista;
-a variável codigo = o ID que cada animal recebe;
+o ponteiro lista, guarda o endereço do ínicio da lista;
+a variável codigo, o ID que cada animal recebe;
 
 Lógica
 
@@ -332,7 +400,7 @@ Utiliza-se duas funções produzidas anteriormente para auxiliar nessa função,
 direita, logo após utiliza-se a segunda função rotacaoesq() que realiza a rotação a esquerda.
 
 * Função balancear ()
-
+" feita com o auxiÍlio de IA "
 Parâmetro
 
 Ponteiro raiz, que indica o início da árvore ou de uma subárvore.
@@ -458,7 +526,59 @@ e apagamos o menor valor.
 Caso não encontre, procura-se o código na subárvore esquerda e procura-se o código na subárvore direita. Por último chama-se a função
 balancear(), para fazer o balanceamento se necessário da função.
 
+## Pasta arquivo.h
 
+Foram declaradas as funções:
+
+-void salvar_arquivo(No *lista), transfere os dados da lista para arquivo TXT
+-void carregar_arquivo(No **lista, Noarv **raiz), recupera os dados do TXT e reconstrói a lista e a árvore AVL
+
+## Pasta arquivo.c
+
+  " feita com auxilio de IA "
+
+* Função salvar_arquivo()
+
+  salvar todos os cadastros dos animais armazenados na lista encadeada num arquivo de texto
+
+Parâmetro
+
+Ponteiro lista, guarda o endereço do ínicio da lista;
+
+Lógica
+Inicialmente recebe o ponteiro para o início da lista, após abre o arquivo no modo escrita ("w").
+Verifica se o arquivo é igual a NULL, se verdadeiro ele avisa que ocorreu um erro.
+Percorre a lista utilizando while, acessando os dados de cada animal e utiliza fprintf para gravar os campos do cadastro,
+por fim fecha o arquivo com fclose após finalizar a gravação.
+
+*Função carregar_arquivos()
+
+Recuperar os cadastros dos animais armazenados no arquivo de texto e reconstruir a lista encadeada e a árvore AVL.
+
+Parâmetros
+
+ponteiro para o ponteiro lista;
+
+ponteiro para o ponteiro raiz
+
+Lógica
+
+Inicialmente recebe o endereço do ponteiro da lista e o endereço do ponteiro da raiz da árvore.
+Abre o arquivo no modo leitura ("r") e verifica se o arquivo foi encontrado e aberto corretamente.
+Utiliza fscanf para ler os dados de cada animal e insere cada cadastro recuperado na lista encadeada por meio da função inserir_ficha.
+Insere cada cadastro também na árvore AVL por meio da função inserir, por fim fecha o arquivo após concluir a leitura.
+
+## Estruturas de dados utilizadas
+
+O projeto utiliza duas estruturas de dados principais: lista encadeada e árvore AVL. Cada uma possui uma finalidade específica no gerenciamento dos cadastros dos animais.
+
+| Estrutura | Onde foi utilizada | Justificativa da escolha |
+|---|---|---|
+| Lista encadeada | Armazenamento dos cadastros, listagem, inserção e remoção de animais. | Foi escolhida por permitir inserções e remoções dinâmicas, sem a necessidade de definir previamente um tamanho fixo, diferentemente de um vetor estático. |
+| Árvore AVL | Organização dos animais por idade e realização de buscas utilizando esse critério. | Foi escolhida por ser uma árvore binária de busca balanceada, mantendo a altura controlada e proporcionando operações de busca, inserção e remoção eficientes, diferentemente de uma árvore binária de busca não balanceada. |
+
+
+As duas estruturas trabalham em conjunto para oferecer diferentes formas de organização e consulta dos animais cadastrados.
 
 ## Dificuladades encontradas
 Minhas principais dificuldades foram na criação da árvore AVL, e no balanceamento 

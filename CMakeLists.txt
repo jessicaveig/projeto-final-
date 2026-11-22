@@ -12,4 +12,6 @@ add_executable(projeto_final_
         patas/cadastro.h
         patas/lista.c
         patas/lista.h
-        patas/main.c)
+        patas/main.c
+        patas/arquivo.h
+        patas/arquivo.c)

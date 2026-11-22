@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "arquivo.h"
 #include "cadastro.h"
 #include "lista.h"
 #include "arvore.h"
@@ -7,6 +9,7 @@
 int main(void) {
     Noarv *raiz = NULL;
     No *lista = NULL;
+    carregar_arquivo(&lista,&raiz);
     cadastro animal;
     int codigo;
     int opcao;
@@ -35,6 +38,8 @@ int main(void) {
                 apresentar_ficha(animal);
                 // inserir na arvore
                raiz = inserir(raiz, animal);
+                // salvar arquivo
+                salvar_arquivo(lista);
 
                 break;
             }
@@ -66,6 +71,7 @@ int main(void) {
                 remover_ficha(&lista,codigo);
                 // remover da arvore
                 raiz = remover(raiz,codigo);
+                salvar_arquivo(lista);
                 break;
 
             case 5:

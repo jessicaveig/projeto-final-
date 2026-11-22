@@ -5,14 +5,12 @@
 #ifndef PATAS_ARVORE_H
 #define PATAS_ARVORE_H
 
-#endif //PATAS_ARVORE_H
 #include "cadastro.h"
 
 typedef struct Noarv {
     cadastro animal;
     struct Noarv *esquerda;
     struct Noarv *direita;
-    int altura;
 }Noarv;
 
 int altura(Noarv *raiz);
@@ -21,9 +19,11 @@ Noarv *rotacaodir(Noarv *raiz);
 Noarv *rotacaoesq(Noarv *raiz);
 Noarv *rotacaoesdi(Noarv *raiz);
 Noarv *rotacaodies(Noarv *raiz);
-Noarv *balancear(Noarv *raiz);
 Noarv *inserir(Noarv *raiz, cadastro animal);
 void busca(Noarv *raiz,int idade);
+Noarv *buscacodigo(Noarv *raiz,int codigo);
 Noarv *removermenor(Noarv *raiz);
 Noarv *encontrarmenor(Noarv *raiz);
 Noarv *remover(Noarv *raiz, int codigo);
+
+#endif //PATAS_ARVORE_H
