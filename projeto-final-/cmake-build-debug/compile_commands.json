@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -IC:/Users/jessi/CLionProjects/projeto-final-/patas -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\projeto_final_.dir\\patas\\arvore.c.obj -c C:\\Users\\jessi\\CLionProjects\\projeto-final-\\patas\\arvore.c",
+  "file": "C:/Users/jessi/CLionProjects/projeto-final-/patas/arvore.c",
+  "output": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug/CMakeFiles/projeto_final_.dir/patas/arvore.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -IC:/Users/jessi/CLionProjects/projeto-final-/patas -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\projeto_final_.dir\\patas\\cadastro.c.obj -c C:\\Users\\jessi\\CLionProjects\\projeto-final-\\patas\\cadastro.c",
+  "file": "C:/Users/jessi/CLionProjects/projeto-final-/patas/cadastro.c",
+  "output": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug/CMakeFiles/projeto_final_.dir/patas/cadastro.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -IC:/Users/jessi/CLionProjects/projeto-final-/patas -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\projeto_final_.dir\\patas\\lista.c.obj -c C:\\Users\\jessi\\CLionProjects\\projeto-final-\\patas\\lista.c",
+  "file": "C:/Users/jessi/CLionProjects/projeto-final-/patas/lista.c",
+  "output": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug/CMakeFiles/projeto_final_.dir/patas/lista.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -IC:/Users/jessi/CLionProjects/projeto-final-/patas -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\projeto_final_.dir\\patas\\main.c.obj -c C:\\Users\\jessi\\CLionProjects\\projeto-final-\\patas\\main.c",
+  "file": "C:/Users/jessi/CLionProjects/projeto-final-/patas/main.c",
+  "output": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug/CMakeFiles/projeto_final_.dir/patas/main.c.obj"
+},
+{
+  "directory": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug",
+  "command": "C:\\Users\\jessi\\AppData\\Local\\Programs\\CLION2~1.1\\bin\\mingw\\bin\\gcc.exe -IC:/Users/jessi/CLionProjects/projeto-final-/patas -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles\\projeto_final_.dir\\patas\\arquivo.c.obj -c C:\\Users\\jessi\\CLionProjects\\projeto-final-\\patas\\arquivo.c",
+  "file": "C:/Users/jessi/CLionProjects/projeto-final-/patas/arquivo.c",
+  "output": "C:/Users/jessi/CLionProjects/projeto-final-/cmake-build-debug/CMakeFiles/projeto_final_.dir/patas/arquivo.c.obj"
+}
+]
