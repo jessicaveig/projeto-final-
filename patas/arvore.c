@@ -17,35 +17,30 @@ int altura (Noarv *raiz) {
         return alturadir+1;
     }
 };
-Noarv * raiz = NULL;
+
 int fatorbalanceamento(Noarv * raiz) {
     if (raiz == NULL) {
         return 0;
     }
         return altura(raiz->esquerda) - altura(raiz->direita);
-    int fatorbalanceamento;
-
-    if (fatorbalanceamento == -1 || fatorbalanceamento == 0|| fatorbalanceamento == 1) {
-        printf ("equilibrado");
-        return fatorbalanceamento ;
-    }
-    printf("arvore desequilibrada");
-    return fatorbalanceamento;
 };
 
-Noarv *rotacaoesq(Noarv *y) {
-    Noarv *x = y->esquerda;
-    Noarv *temp = x->direita;
-    x->direita= y;
-    y->esquerda = temp;
-    return x;
-}
-// *x
-Noarv *rotacaodir(Noarv *x) {
+Noarv *rotacaoesq(Noarv *x) {
     Noarv *y = x->direita;
     Noarv *temp = y->esquerda;
-    x->esquerda= x;
-    y->direita = temp;
+    y->esquerda = x;
+    x->direita = temp;
+
+    return y;
+}
+
+Noarv *rotacaodir(Noarv *x) {
+
+    Noarv *y = x->esquerda;
+    Noarv *temp = y->direita;
+
+    y->direita = x;
+    x->esquerda = temp;
     return y;
 }
 Noarv *rotacaoesdi(Noarv *raiz) {
@@ -72,7 +67,7 @@ Noarv *inserir(Noarv *raiz, cadastro animal) {
     else {
         raiz->direita = inserir(raiz->direita, animal);
     }
-    return raiz;
+    return balancear(raiz);
 }
 void busca(Noarv *raiz, int idade) {
     if (raiz == NULL) {
@@ -89,20 +84,37 @@ void busca(Noarv *raiz, int idade) {
         busca(raiz->direita, idade);
     }
 }
-Noarv *buscacodigo(Noarv *raiz, int codigo) {
+Noarv *balancear(Noarv *raiz) {
+
     if (raiz == NULL) {
         return NULL;
     }
-    if (codigo == raiz->animal.codigo) {
-        return raiz ;
+    int fb = fatorbalanceamento(raiz);
+    // Pesada à esquerda
+    if (fb > 1) {
+
+        if (fatorbalanceamento(raiz->esquerda) >= 0) {
+            return rotacaodir(raiz);
+        }
+        else {
+            raiz->esquerda = rotacaoesq(raiz->esquerda);
+            return rotacaodir(raiz);
+        }
     }
-    Noarv *encontrado = buscacodigo(raiz->esquerda, codigo);
-    if (encontrado != NULL) {
-        return encontrado;
+
+    // Pesada à direita
+    if (fb < -1) {
+
+        if (fatorbalanceamento(raiz->direita) <= 0) {
+            return rotacaoesq(raiz);
+        }
+        else {
+            raiz->direita = rotacaodir(raiz->direita);
+            return rotacaoesq(raiz);
+        }
     }
-    else{
-        return buscacodigo(raiz->direita, codigo);
-    }
+
+    return raiz;
 }
 Noarv * encontrarmenor(Noarv *raiz) {
     while (raiz->esquerda !=NULL) {
@@ -117,7 +129,8 @@ Noarv *removermenor(Noarv *raiz) {
         return direita;
     }
     raiz->esquerda = removermenor(raiz->esquerda);
-    return raiz;
+    return balancear(raiz);
+
 }
 Noarv *remover(Noarv *raiz, int codigo) {
 
@@ -147,12 +160,12 @@ Noarv *remover(Noarv *raiz, int codigo) {
         Noarv* menor = encontrarmenor(raiz->direita);
         raiz->animal =  menor->animal;
         raiz->direita = removermenor(raiz->direita);
-        return raiz;
+        return balancear(raiz);
     }
     // procura na esquerda
     raiz->esquerda = remover(raiz->esquerda, codigo);
     // procura na direita
     raiz->direita = remover(raiz->direita, codigo);
-    return raiz;
+    return balancear(raiz);
 
 }

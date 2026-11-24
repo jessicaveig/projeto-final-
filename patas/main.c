@@ -31,6 +31,9 @@ int main(void) {
 
         // cadastro do animal
         switch (opcao) {
+            case 0: {
+                break;
+            }
             case 1: {
                 animal = cadastrar_ficha();
                 lista = inserir_ficha(lista, animal);
