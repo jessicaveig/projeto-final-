@@ -11,7 +11,7 @@ Matricula: 202210503705
 
 ## Instituição 
 
-A instituição escolhida foi uma ONG de adoção de pets localizada na Palhoça, Diretoria de Bem-Estar Animal de Palhoça (DIBEA).
+A instituição escolhida foi uma ONG de adoção de pets localizada na Palhoça,APRAP (Amigos e Protetores dos Animais de Palhoça.
 Ela foi escolhida por ser próxima à região, ele possibilita uma orgaização dos animais por cadastro, sendo possível a procura 
 tanto pelo código que o animal possui quanto pela idade desejada.
 
